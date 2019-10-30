@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * TokoPini
+ * 
+ *
+ * @category   Mage
+ * @package    TokoPini_SendOrder
+ * @copyright  Copyright (c) 2009-2019 TokoPini.
+ */
+-->
+<config>
+    <tabs>
+        <tokopini translate="label" module="SendOrder">
+            <label>TokoPini</label>
+            <sort_order>100</sort_order>
+        </tokopini>
+    </tabs> 
+    <sections>
+        <sendorder translate="label" module="SendOrder"> 
+			<label>TokoPini Send Order Settings</label>
+			<tab>tokopini</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>10</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>Send Order</label>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Send Order To TokoPini</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <logging_enabled translate="label">
+                            <label>Enable Error Logging</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logging_enabled>
+                        <apiurl>
+                            <label>API URL</label>
+                            <comment>e.g http://tokopini-api.myapi.es/api/purchases</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </apiurl>
+                        <apitoken>
+                            <label>API Token</label>
+                            <comment>e.g ENDER7</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </apitoken>
+                    </fields>
+                </general>				
+				<exclusions>
+                    <label>Exclusions</label>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable_exclusions translate="label">
+                            <label>Exclusions (Enable/Disable)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable_exclusions>
+                        <customer_groups_to_exclude translate="label">
+                            <label>Select Customer Groups To Be Excluded</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>SendOrder/config_source_listMode</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<depends><enable_exclusions>1</enable_exclusions></depends>
+                        </customer_groups_to_exclude>
+                        <exclusions_by_keywords>
+                            <label>Keyword Exclusions</label>
+                            <comment>Comma separated list of keyword exclusions</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<depends><enable_exclusions>1</enable_exclusions></depends>
+                        </exclusions_by_keywords>
+                    </fields>
+				</exclusions>
+            </groups>
+        </sendorder>
+    </sections>
+</config>
