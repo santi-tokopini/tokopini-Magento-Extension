@@ -64,9 +64,15 @@ class TokoPini_ApplyVoucher_Model_Checkout_Observer
 			if($quote->getCouponCode()!="") {
 				$response = $this->checkCoupon($quote->getCouponCode());
 				if(!$response->isSuccessful()) {
+                                        if(substr($quote->getCouponCode(), 0, 3) == 'TKP') {   // added by Santi 
 					$this->removeCouponRule($quote->getCouponCode());
-					Mage::log("Removing Coupon Code Rule. Expired Code: ". $quote->getCouponCode(), null,'tokopini_applyvoucher.log');
+					Mage::log("Removing Coupon Code Rule. Expired Codes: ". $quote->getCouponCode(), null,'tokopini_applyvoucher.log');
+                                
 				}
+                                else{ 
+                                    Mage::log("Non Tokopini coupon.  Code: ". $quote->getCouponCode(), null,'tokopini_applyvoucher.log');   // added by Santi 
+                                }
+                                }
 			}
 		}
 	}
@@ -90,7 +96,7 @@ class TokoPini_ApplyVoucher_Model_Checkout_Observer
 				}
 			} else {
 				//success with response 200
-				if($response->getStatus() == "200") {
+				if($response->getStatus() == "200" && substr($order->getCouponCode(), 0, 3) == 'TKP') {
 					$this->removeCouponRule($order->getCouponCode());
 				}
 			}
@@ -109,7 +115,7 @@ class TokoPini_ApplyVoucher_Model_Checkout_Observer
 				}
 			} else {
 				//success with response 200
-				if($response->getStatus() == "200") {
+				if($response->getStatus() == "200" && substr($order->getCouponCode(), 0, 3) == 'TKP') {
 					$this->removeCouponRule($order->getCouponCode());
 				}
 			}
