@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+     <modules>
+        <TokoPini_DisplayFeedback>
+            <active>true</active>
+            <codePool>local</codePool>
+        </TokoPini_DisplayFeedback>
+     </modules>
+</config>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout>
+	<tokopini_displayfeedback_handle translate="label">
+		<reference name="head">	
+		  <action method="addJs"><script>tokopini/dfwidget.js</script></action> 
+		  <action method="addItem"><type>skin_css</type><name>css/tokopini/dfwidget.css</name></action>
+		</reference>
+		<reference name="before_body_end">
+			<block type="core/template" after="-" name="tokopini_display_feedback" as="tokopini_display_feedback" template="tokopini/displayfeedback.phtml"/>
+		</reference>
+	</tokopini_displayfeedback_handle>
+</layout>
