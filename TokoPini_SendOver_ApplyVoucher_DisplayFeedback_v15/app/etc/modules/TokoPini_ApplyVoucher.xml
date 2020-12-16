@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+     <modules>
+        <TokoPini_ApplyVoucher>
+            <active>true</active>
+            <codePool>local</codePool>
+        </TokoPini_ApplyVoucher>
+     </modules>
+</config>
